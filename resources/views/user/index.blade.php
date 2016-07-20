@@ -19,7 +19,7 @@ Users List ({{$count}})
 			@foreach($users as $user)
 				<tr>
 					<td>{{$user->id}}</td>
-					<td>{{$user->firstname}}</td>
+					<td>{{$user->name}}</td>
 					<td>{{$user->lastname}}</td>
 					<td>{{$user->email}}</td>
 					<td width="380">

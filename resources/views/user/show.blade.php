@@ -1,7 +1,7 @@
 @extends("app")
 
 @section('pagetitle')
-Show Single User
+Show Single User ID:{{Auth::user()->id}} Email:{{Auth::user()->email}}
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@ Show Single User
 			
 				<tr>
 					<td>{{$user->id}}</td>
-					<td>{{$user->firstname}}</td>
+					<td>{{$user->name}}</td>
 					<td>{{$user->lastname}}</td>
 					<td>{{$user->email}}</td>
 					<td width="380">
@@ -58,9 +58,12 @@ Show Single User
                                             <a class="btn btn-small btn-success" href="{{ URL::to('books/' . $book->id)}}">Show this Book</a>
                                             {!!  Form::open (['url'=>['books/'.$book->id.'/users/'.$user->id]])  !!}
                                             {!!  Form::hidden('_method', 'PUT')  !!}
+
+                                        @if (Auth::user()->email == "a.panibratenko@gmail.com")   
+
                                             {!!  Form::submit('Return this book',['class'=>'btn btn-warning']) !!}
                                             {!!  Form::close() !!}
-                                            
+                                        @endif    
                                             
                                         </td>
 				</tr>

@@ -2,7 +2,7 @@
 
 
 @section('pagetitle')
-	Add new Book
+    Add new Book
 @stop
 
 @section('content')

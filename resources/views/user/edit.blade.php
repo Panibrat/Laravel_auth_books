@@ -13,8 +13,8 @@
 
 
     <div class="form-group">
-        {!! Form::label('firstname', 'Имя: *')!!}
-	{!! Form::text('firstname', Input::old('firstname'), array('class' => 'form-control'))!!}
+        {!! Form::label('name', 'Имя: *')!!}
+	{!! Form::text('name', Input::old('name'), array('class' => 'form-control'))!!}
     </div>
     <div class="form-group">
         {!! Form::label('lastname', 'Фамилия: *')!!}

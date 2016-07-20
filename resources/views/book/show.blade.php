@@ -27,8 +27,12 @@ Book Detales
 					<td>{{$book->genre}}</td>
 					<td>{{$book->client_id}}</td>
 
+
+				@if (Auth::user()->email == "a.panibratenko@gmail.com")	
 					<td width="385">
-						<a class="btn btn-small btn-success" href="{{ URL::to('books/' . $book->id)}}">Show this Book</a>
+
+
+						<!--a class="btn btn-small btn-success" href="{{ URL::to('books/' . $book->id)}}">Show this Book</a-->
                                                 <a class="btn btn-small btn-info" href="{{ URL::to('books/' . $book->id . '/edit')}}">Edit this Book</a>
                                                 
                                             {!! Form::open(array('url' => 'books/' . $book->id, 'class' => 'pull-right')) !!}
@@ -38,7 +42,8 @@ Book Detales
                                             
                                             
                                             
-                                        </td>
+                    </td>
+                @endif    
 				</tr>
 
 

@@ -36,7 +36,7 @@ class UserController extends Controller
     public function store(Request $request){
         //echo "UserController store";
         $rules = array(
-            'firstname' => 'required|alpha',
+            'name' => 'required|alpha',
             'lastname' => 'required|alpha',
             'email' => 'required|email|unique:users'
             );
@@ -47,7 +47,7 @@ class UserController extends Controller
             ->withInput();
         } else {
             $user = new User;
-            $user->firstname = $request->firstname;
+            $user->name = $request->name;
             $user->lastname = $request->lastname;
             $user->email = $request->email;
             $user->save();
@@ -68,9 +68,9 @@ class UserController extends Controller
     public function update(Request $request, $id){
         //echo "UserController update";
         $rules = array(
-            'firstname' => 'required|alpha',
+            'name' => 'required|alpha',
             'lastname' => 'required|alpha',
-            'email' => 'required|email|unique:users'
+            'email' => 'required|email'
             );
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
@@ -80,12 +80,12 @@ class UserController extends Controller
         } else {
 
             $user = User::find($id);
-            $user->firstname = $request->firstname;
+            $user->name = $request->name;
             $user->lastname = $request->lastname;
             $user->email = $request->email;
             $user->save();
             Session::flash('message', 'Изменили юзера');
-            return Redirect::to('users');
+            return Redirect::to('users/'.$id);
         }
     
         

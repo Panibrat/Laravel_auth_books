@@ -40,20 +40,16 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Welcome to Library
+                    Laravel
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                @if (!Auth::guest())
-                    <ul class="nav navbar-nav">
-                        <li><a href= "{{ URL::to('users') }}"> View all users</a></li>
-                        <li><a href= "{{ URL::to('users/create') }}"> Create a user</a></li>
-                        <li><a href= "{{ URL::to('books') }}"> View all books</a></li>
-                        <li><a href= "{{ URL::to('books/create') }}"> Create a book</a></li>
-                    </ul>
-                @endif
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/home') }}">Cabinet</a></li>
+                </ul>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
@@ -61,10 +57,11 @@
                         <li><a href="{{ url('auth/github') }}">Github</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
+
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->firstname }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -79,13 +76,6 @@
 
 
 
-    <h1> @yield('pagetitle')</h1>
-
-    @if (Session::has('message'))
-        <div class="container">
-        <div class = "alert alert-info">{{ Session::get('message') }}</div>
-        </div>
-    @endif
 
     @yield('content')
 

@@ -12,8 +12,8 @@
 
 
     <div class="form-group">
-        <label for="firstname">Имя: *</label>
-        <input class="form-control" placeholder="Имя" name="firstname" type="text" id="firstname">
+        <label for="name">Имя: *</label>
+        <input class="form-control" placeholder="Имя" name="name" type="text" id="name">
     </div>
     <div class="form-group">
         <label for="lastname">Фамилия: *</label>

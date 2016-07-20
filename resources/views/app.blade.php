@@ -15,10 +15,14 @@
 	<div class="container">
 	<nav class="navbar navbar-inverse">
 		<ul class="nav navbar-nav">
+			<li><a href="{{ URL::to('/')}}">MAIN</a></li>
+		@if (Auth::user()->email == "a.panibratenko@gmail.com")
 			<li><a href="{{ URL::to('users')}}">View All Users</a></li>
 			<li><a href="{{ URL::to('users/create')}}">Create a User</a></li>
-			<li><a href="{{ URL::to('books')}}">View All Books</a></li>
 			<li><a href="{{ URL::to('books/create')}}">Add new Book</a></li>
+		@endif
+			<li><a href="{{ URL::to('books')}}">View All Books</a></li>
+			
 		</ul>
 	</nav>
 	<h1>@yield('pagetitle')</h1>
